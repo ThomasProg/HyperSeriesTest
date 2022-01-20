@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpriteAtlas_Icons
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: ddf54214f490ae249bc1223ae6eeb0ad, type: 3}
+    - {fileID: 2800000, guid: 53a9baed663e0d2468f396694d537152, type: 3}
+    - {fileID: 2800000, guid: f91035beef7606c42bfb6cff9e6bea62, type: 3}
+    - {fileID: 2800000, guid: 0388d399b65e77a469cafd2553d8f467, type: 3}
+    - {fileID: 2800000, guid: 7f64f346d3c96ce4cb943567fbc32691, type: 3}
+    - {fileID: 2800000, guid: 2d3ede45985b7a045bab2e25aabfa864, type: 3}
+    totalSpriteSurfaceArea: 6203280
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: ddf54214f490ae249bc1223ae6eeb0ad, type: 3}
+  - {fileID: 21300000, guid: 2d3ede45985b7a045bab2e25aabfa864, type: 3}
+  - {fileID: 21300000, guid: 7f64f346d3c96ce4cb943567fbc32691, type: 3}
+  - {fileID: 21300000, guid: 0388d399b65e77a469cafd2553d8f467, type: 3}
+  - {fileID: 21300000, guid: 53a9baed663e0d2468f396694d537152, type: 3}
+  - {fileID: 21300000, guid: f91035beef7606c42bfb6cff9e6bea62, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Button_Shape.svg
+  - Button_Rotate
+  - Button_Playtogether
+  - button_play
+  - Button_arrow.svg
+  - button_pause
+  m_RenderDataMap: {}
+  m_Tag: SpriteAtlas_Icons
+  m_IsVariant: 0
