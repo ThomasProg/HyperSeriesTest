@@ -46,6 +46,7 @@ public class ExpandableArea : MonoBehaviour
             isExpanded = value;
             if (isExpanded)
             {
+                expandedArea.gameObject.SetActive(true);
                 animCoroutine = StartCoroutine(OpenAnimation());
             }
             else
@@ -120,6 +121,8 @@ public class ExpandableArea : MonoBehaviour
         expandedArea.localScale = expandedAreaScale;
 
         arrowImage.transform.rotation = Quaternion.AngleAxis(-90f, Vector3.forward);
+
+        expandedArea.gameObject.SetActive(true);
     }
 
     public void CloseFullyImmediatly()
@@ -133,6 +136,8 @@ public class ExpandableArea : MonoBehaviour
         expandedArea.localScale = expandedAreaScale;
 
         arrowImage.transform.rotation = Quaternion.AngleAxis(-0f, Vector3.forward);
+
+        expandedArea.gameObject.SetActive(false);
     }
 
     public void FlipFlopImmediatly()
