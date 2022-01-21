@@ -11,12 +11,6 @@ public class EditorPage : MonoBehaviour
     [SerializeField]
     private TMP_InputField nbViewsText = null;
 
-    private void Awake()
-    {
-        RectTransform rect = GetComponent<RectTransform>();
-        rect.sizeDelta = new Vector2(rect.sizeDelta.x, Screen.safeArea.height - 100);
-    }
-
     void OnEnable()
     {
         LoadPage();

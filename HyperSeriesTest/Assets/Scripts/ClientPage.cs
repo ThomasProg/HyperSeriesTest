@@ -11,12 +11,6 @@ public class ClientPage : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI nbViewsText = null;
 
-    private void Awake()
-    {
-        RectTransform rect = GetComponent<RectTransform>();
-        rect.sizeDelta = new Vector2(rect.sizeDelta.x, Screen.safeArea.height - 100);
-    }
-
     void OnEnable()
     {
         LoadPage();

@@ -747,6 +747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_Editor
       objectReference: {fileID: 0}
+    - target: {fileID: 5633371327488507039, guid: 5a67a575c865f034e94f52c665deb82b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5633371327822971509, guid: 5a67a575c865f034e94f52c665deb82b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
