@@ -17,17 +17,6 @@ public class VideoManager : MonoBehaviour
 
     private bool isMovingSlider = false;
     private bool wasPlayingBeforeMovingSlider = false;
-    private bool isFullScreen = false;
-    private bool hasFlipFloppedFullscreenRecently = false;
-
-    [SerializeField]
-    private GameObject portraitGOToEnable = null;
-    [SerializeField]
-    private GameObject landscapeGOToEnable = null;
-    [SerializeField]
-    private GameObject portraitNewLayout = null;
-    [SerializeField]
-    private GameObject landscapeNewLayout = null;
 
     [SerializeField]
     private Fade fade = null;
@@ -89,25 +78,6 @@ public class VideoManager : MonoBehaviour
         {
             video.time = progressBar.value * VideoLength;
         }
-
-        if ((isFullScreen && (Input.deviceOrientation == DeviceOrientation.LandscapeLeft || Input.deviceOrientation == DeviceOrientation.LandscapeRight))
-            || (!isFullScreen && (Input.deviceOrientation == DeviceOrientation.Portrait || Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown)))
-        {
-            hasFlipFloppedFullscreenRecently = false;
-        }
-
-        if (!hasFlipFloppedFullscreenRecently && isFullScreen 
-            && (Input.deviceOrientation == DeviceOrientation.Portrait || Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown))
-        {
-            Screen.orientation = ScreenOrientation.AutoRotation;
-            SetPortrait();
-        }
-        else if (!hasFlipFloppedFullscreenRecently && !isFullScreen 
-            && (Input.deviceOrientation == DeviceOrientation.LandscapeLeft || Input.deviceOrientation == DeviceOrientation.LandscapeRight))
-        {
-            SetFullScreen();
-            Screen.orientation = ScreenOrientation.AutoRotation;
-        }
     }
 
     public void SetTime(float newTime)
@@ -128,39 +98,5 @@ public class VideoManager : MonoBehaviour
 
         if (wasPlayingBeforeMovingSlider)
             VideoPlay();
-    }
-
-    public void SetFullScreen()
-    {
-        // Not really opti, but if the video is set non active, then it reloads the frames at the beginning
-        landscapeGOToEnable.SetActive(true);
-        transform.SetParent(landscapeNewLayout.transform);
-        portraitGOToEnable.SetActive(false);
-        isFullScreen = true;
-    }
-
-    public void SetPortrait()
-    {
-        // Not really opti, but if the video is set non active, then it reloads the frames at the beginning
-        portraitGOToEnable.SetActive(true);
-        transform.SetParent(portraitNewLayout.transform);
-        landscapeGOToEnable.SetActive(false);
-        isFullScreen = false;
-    }
-
-    public void FlipFlopFullScreen()
-    {
-        if (isFullScreen)
-        {
-            Screen.orientation = ScreenOrientation.Portrait;
-            SetPortrait();
-        }
-        else
-        {
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
-            SetFullScreen();
-        }
-
-        hasFlipFloppedFullscreenRecently = true;
     }
 }

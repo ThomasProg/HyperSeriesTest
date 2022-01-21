@@ -29,13 +29,9 @@ public class ScrollSnap : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
     public delegate void SnapAction(int elemID);
     public event SnapAction snapEvent;
 
-    void Awake()
-    {
-        scrollRect = GetComponent<ScrollRect>();
-    }
-
     void Start() 
     {
+        scrollRect = GetComponent<ScrollRect>();
         container = scrollRect.content;
         nbElements = container.childCount;
         elemHeight = container.rect.height; 

@@ -594,10 +594,6 @@ MonoBehaviour:
   video: {fileID: 5237904364764671001}
   time: {fileID: 5237904365614538758}
   progressBar: {fileID: 5237904365305159396}
-  portraitGOToEnable: {fileID: 0}
-  landscapeGOToEnable: {fileID: 0}
-  portraitNewLayout: {fileID: 0}
-  landscapeNewLayout: {fileID: 0}
   fade: {fileID: 4731811731417135345}
   playImage: {fileID: 5237904364658416124}
   playSprite: {fileID: 21300000, guid: 0388d399b65e77a469cafd2553d8f467, type: 3}

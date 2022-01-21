@@ -16,3 +16,25 @@ Features :
 
 - In the editor page, you can change the episode name and the number of views. You can then save it by clicking on the "save" button. If you return to the client page, you can see the modifications. If you restart the app, what you saved before will also be loaded.
 
+A diagram is available at the root of the repository.
+Original Diagram Link : https://drive.google.com/file/d/1BhTE3VuI-dGk37at6Yf87D0zWNVE99dF/view?usp=sharing
+
+
+Time spent for each exercise : 
+- Exercie 1 : UI Integration : **5h**
+	- Problems : 
+		- Keeping aspect ratio (of the video / image) while putting an UI element right under the video
+
+- Exercise 2 : Vertical Layout : **4h30**
+
+- Exercise 3 : Horizontal Layout : **1h30**
+    - Problems :
+        - What layout should I do ? 
+            - Solution : For most video apps, it just goes into fullscreen mode
+
+- Exercise 4 : Video : **4h**
+	- Problems : 
+		- When changing the time, the video doesn't load the new frames immediatly so the bar goes back to the previous value. Tried to use sendFrameReadyEvents and frameReady, but sometimes frames are already loaded, so it doesn't work (no fixes found)
+		- When going to fullscreen, the transition isn't perfect
+		
+- Exercise 5 : Documentation : **1h30**

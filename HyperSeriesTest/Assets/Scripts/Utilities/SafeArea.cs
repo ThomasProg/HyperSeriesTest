@@ -9,11 +9,16 @@ public class SafeArea : MonoBehaviour
 
     private void Awake()
     {
+        UpdateSafeArea();
+    }
+
+    public void UpdateSafeArea()
+    {
         Rect safeAreaRect = Screen.safeArea;
 
         Vector2 anchorMin = safeAreaRect.position;
         Vector2 anchorMax = anchorMin + safeAreaRect.size;
-        
+
         anchorMin.x /= Screen.width;
         anchorMin.y /= Screen.height;
         anchorMax.x /= Screen.width;
