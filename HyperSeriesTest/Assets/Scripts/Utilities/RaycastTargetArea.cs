@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
-using UnityEditor.UI;
 
 // Slider needs a child to have a RaycastTarget.
 // However, if it is an image, it has to draw it, even if its alpha is 0.
@@ -22,10 +21,11 @@ public class RaycastTargetArea : Graphic
     }
 }
 
+#if UNITY_EDITOR
 // Without this class, the “Color” and “Material” fields would show in the Inspector.
 // However, they are not used, so it's better not to show them.
 [CanEditMultipleObjects, CustomEditor(typeof(RaycastTargetArea), false)]
-public class RaycastTargetAreaEditor : GraphicEditor
+public class RaycastTargetAreaEditor : UnityEditor.UI.GraphicEditor
 {
     public override void OnInspectorGUI()
     {
@@ -36,3 +36,4 @@ public class RaycastTargetAreaEditor : GraphicEditor
         base.serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

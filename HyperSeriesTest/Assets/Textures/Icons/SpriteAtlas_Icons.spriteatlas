@@ -37,7 +37,9 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 0388d399b65e77a469cafd2553d8f467, type: 3}
     - {fileID: 2800000, guid: 7f64f346d3c96ce4cb943567fbc32691, type: 3}
     - {fileID: 2800000, guid: 2d3ede45985b7a045bab2e25aabfa864, type: 3}
-    totalSpriteSurfaceArea: 6203280
+    - {fileID: 2800000, guid: d1c129fa9d1b04d4ba76fe807fef78d0, type: 3}
+    - {fileID: 2800000, guid: 6a14e28ec2e141043ae3695e279477f7, type: 3}
+    totalSpriteSurfaceArea: 6506384
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -47,14 +49,18 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2d3ede45985b7a045bab2e25aabfa864, type: 3}
   - {fileID: 21300000, guid: 7f64f346d3c96ce4cb943567fbc32691, type: 3}
   - {fileID: 21300000, guid: 0388d399b65e77a469cafd2553d8f467, type: 3}
+  - {fileID: 21300000, guid: d1c129fa9d1b04d4ba76fe807fef78d0, type: 3}
   - {fileID: 21300000, guid: 53a9baed663e0d2468f396694d537152, type: 3}
+  - {fileID: 21300000, guid: 6a14e28ec2e141043ae3695e279477f7, type: 3}
   - {fileID: 21300000, guid: f91035beef7606c42bfb6cff9e6bea62, type: 3}
   m_PackedSpriteNamesToIndex:
   - Button_Shape.svg
   - Button_Rotate
   - Button_Playtogether
   - button_play
+  - RoundMask
   - Button_arrow.svg
+  - roudedSquareMask
   - button_pause
   m_RenderDataMap: {}
   m_Tag: SpriteAtlas_Icons

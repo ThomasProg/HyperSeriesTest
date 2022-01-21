@@ -17,7 +17,7 @@ public class ClientPage : MonoBehaviour
         rect.sizeDelta = new Vector2(rect.sizeDelta.x, Screen.safeArea.height - 100);
     }
 
-    private void Update()
+    void OnEnable()
     {
         LoadPage();
     }

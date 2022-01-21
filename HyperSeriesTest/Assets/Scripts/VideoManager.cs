@@ -18,6 +18,7 @@ public class VideoManager : MonoBehaviour
     private bool isMovingSlider = false;
     private bool wasPlayingBeforeMovingSlider = false;
     private bool isFullScreen = false;
+    private bool hasFlipFloppedFullscreenRecently = false;
 
     [SerializeField]
     private GameObject portraitGOToEnable = null;
@@ -45,12 +46,6 @@ public class VideoManager : MonoBehaviour
             return video.frameCount / video.frameRate;
         }
     }
-
-    private void Awake()
-    {
-        video.frameReady += OnVideoStartAtNewTime;
-    }
-
 
     public void VideoPause()
     {
@@ -94,6 +89,25 @@ public class VideoManager : MonoBehaviour
         {
             video.time = progressBar.value * VideoLength;
         }
+
+        if ((isFullScreen && (Input.deviceOrientation == DeviceOrientation.LandscapeLeft || Input.deviceOrientation == DeviceOrientation.LandscapeRight))
+            || (!isFullScreen && (Input.deviceOrientation == DeviceOrientation.Portrait || Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown)))
+        {
+            hasFlipFloppedFullscreenRecently = false;
+        }
+
+        if (!hasFlipFloppedFullscreenRecently && isFullScreen 
+            && (Input.deviceOrientation == DeviceOrientation.Portrait || Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown))
+        {
+            Screen.orientation = ScreenOrientation.AutoRotation;
+            SetPortrait();
+        }
+        else if (!hasFlipFloppedFullscreenRecently && !isFullScreen 
+            && (Input.deviceOrientation == DeviceOrientation.LandscapeLeft || Input.deviceOrientation == DeviceOrientation.LandscapeRight))
+        {
+            SetFullScreen();
+            Screen.orientation = ScreenOrientation.AutoRotation;
+        }
     }
 
     public void SetTime(float newTime)
@@ -110,42 +124,43 @@ public class VideoManager : MonoBehaviour
 
     public void EndMovingSlider()
     {
-        video.sendFrameReadyEvents = true;
         isMovingSlider = false;
 
         if (wasPlayingBeforeMovingSlider)
             VideoPlay();
     }
 
-    // When the user was moving the video slider at a time where frames weren't loaded yet,
-    // the slider would go back to the previous time for some frames
-    // This callback fixes this issue.
-    void OnVideoStartAtNewTime(VideoPlayer source, long frameIdx)
+    public void SetFullScreen()
     {
-        video.sendFrameReadyEvents = false;
-        //if (wasPlayingBeforeMovingSlider)
-        //    VideoPlay();
+        // Not really opti, but if the video is set non active, then it reloads the frames at the beginning
+        landscapeGOToEnable.SetActive(true);
+        transform.SetParent(landscapeNewLayout.transform);
+        portraitGOToEnable.SetActive(false);
+        isFullScreen = true;
+    }
+
+    public void SetPortrait()
+    {
+        // Not really opti, but if the video is set non active, then it reloads the frames at the beginning
+        portraitGOToEnable.SetActive(true);
+        transform.SetParent(portraitNewLayout.transform);
+        landscapeGOToEnable.SetActive(false);
+        isFullScreen = false;
     }
 
     public void FlipFlopFullScreen()
     {
         if (isFullScreen)
         {
-            // Not really opti, but if the video is set non active, then it reloads the frames at the beginning
-            portraitGOToEnable.SetActive(true);
-            Screen.orientation = ScreenOrientation.AutoRotation;
-            transform.SetParent(portraitNewLayout.transform);
-            landscapeGOToEnable.SetActive(false);
+            Screen.orientation = ScreenOrientation.Portrait;
+            SetPortrait();
         }
         else
         {
-            // Not really opti, but if the video is set non active, then it reloads the frames at the beginning
-            landscapeGOToEnable.SetActive(true);
             Screen.orientation = ScreenOrientation.LandscapeLeft;
-            transform.SetParent(landscapeNewLayout.transform);
-            portraitGOToEnable.SetActive(false);
+            SetFullScreen();
         }
 
-        isFullScreen = !isFullScreen;
+        hasFlipFloppedFullscreenRecently = true;
     }
 }

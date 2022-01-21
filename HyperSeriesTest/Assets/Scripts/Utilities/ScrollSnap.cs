@@ -19,11 +19,15 @@ public class ScrollSnap : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
     
     private int nbElements;
     private int currentElementID;
+    public int CurrentElementID { get { return currentElementID; } }
     private Vector2 lerpTargetPosition;
 
     private Coroutine transitionCoroutine = null;
 
     private List<Vector2> elementPositions = new List<Vector2>();
+
+    public delegate void SnapAction(int elemID);
+    public event SnapAction snapEvent;
 
     void Awake()
     {
@@ -104,6 +108,7 @@ public class ScrollSnap : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
         lerpTargetPosition = elementPositions[elementID];
         transitionCoroutine = StartCoroutine(RunTransitionCoroutine());
         currentElementID = elementID;
+        snapEvent?.Invoke(currentElementID);
     }
 
     private int GetNearestElement() 

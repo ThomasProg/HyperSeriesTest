@@ -17,6 +17,11 @@ public class EditorPage : MonoBehaviour
         rect.sizeDelta = new Vector2(rect.sizeDelta.x, Screen.safeArea.height - 100);
     }
 
+    void OnEnable()
+    {
+        LoadPage();
+    }
+
     public void LoadPage()
     {
         episodeName.text = PlayerPrefs.GetString("episodeName");
